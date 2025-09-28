@@ -2,6 +2,8 @@ import express from "express";
 import connectDB from "./db/db.connect";
 import dotenv from "dotenv";
 import cors from "cors";
+import authRoutes from "./routes/authRoutes.js";
+import notesRoutes from "./routes/notesRouter.js";
 
 // Load env variables
 dotenv.config();
@@ -12,8 +14,12 @@ const PORT = 8080;
 app.use(cors()); // Sare port ko allow kr deta hai ki frontend backend se request response exchange ho..
 app.use(express.json()); // ye Json Data samjh lega
 
-app.use("/api", apiroutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/notes", notesRoutes);
+
+app.get("/", (req, res) => {
+  res.send(" Notes API is running...");
+});
 
 const StartServer = async () => {
   try {
