@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 
-export const authenticate = async (Req, res, next) => {
+export const protect = async (req, res, next) => {
   try {
-    const authHeader = req.header("Authorization"); // "Bearer" = ek label jo batata hai ki yeh ek JWT token hai jo request ke saath carry ho raha hai.
+    const authHeader = req.header("Authorization"); // "Bearer <token>"
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res
         .status(401)
@@ -21,7 +21,6 @@ export const authenticate = async (Req, res, next) => {
         .json({ success: false, message: "User not found." });
     }
 
-    // 5. Call next middleware/controller
     next();
   } catch (error) {
     console.error(error);
