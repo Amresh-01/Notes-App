@@ -1,5 +1,5 @@
 // ===== Configuration =====
-const API_URL = "http://localhost:8080/api"; // ✅ Local backend
+const API_URL = "http://localhost:8080/api"; 
 
 // ===== Signup =====
 async function signup() {

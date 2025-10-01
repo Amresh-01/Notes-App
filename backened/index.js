@@ -11,7 +11,10 @@ dotenv.config();
 const app = express();
 const PORT = 8080;
 
-app.use(cors()); // Sare port ko allow kr deta hai ki frontend backend se request response exchange ho..
+app.use(cors({
+  origin:process.env.FRONTEND_URL,
+  credentials:true
+})); // Sare port ko allow kr deta hai ki frontend backend se request response exchange ho..
 app.use(express.json()); // ye Json Data samjh lega
 
 app.use("/api/auth", authRoutes);
