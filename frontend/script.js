@@ -1,5 +1,5 @@
 // ===== Configuration =====
-const API_URL = "https://notes-app-backened.onrender.com"; 
+const API_URL = "https://notes-app-backened.onrender.com/api"; 
 
 // ===== Signup =====
 async function signup() {
