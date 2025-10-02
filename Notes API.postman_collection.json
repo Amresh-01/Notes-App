@@ -12,7 +12,7 @@
 				{
 					"name": "register",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": []
 					},
 					"response": []
@@ -20,7 +20,7 @@
 				{
 					"name": "login",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": []
 					},
 					"response": []
@@ -57,7 +57,7 @@
 				{
 					"name": "updateNote_put",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": []
 					},
 					"response": []
@@ -68,7 +68,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
@@ -104,7 +104,7 @@
 				{
 					"name": "delete_Note",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": []
 					},
 					"response": []
