@@ -30,7 +30,6 @@ jobs:
       - name: Create deployment package (without node_modules)
         run: |
           mkdir -p deploy
-          cp -r dist deploy/
           cp -r src deploy/
           cp package*.json deploy/
           cp ecosystem.config.cjs deploy/
@@ -74,10 +73,10 @@ jobs:
 
             sudo chown -R $USER:$USER /var/www/express-app
 
-            if [ -d "dist" ]; then
+            if [ -d "src" ]; then
               timestamp=$(date +%Y%m%d_%H%M%S)
               mkdir -p backups
-              tar -czf backups/backup_${timestamp}.tar.gz dist package.json ecosystem.config.cjs .env 2>/dev/null || true
+              tar -czf backups/backup_${timestamp}.tar.gz src package.json ecosystem.config.cjs .env 2>/dev/null || true
               ls -t backups/backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm
             fi
 
@@ -153,4 +152,4 @@ jobs:
 
           EOF
 
-          rm private_key.pem
+          rm private_key.pem  
